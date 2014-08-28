@@ -17,3 +17,4 @@
 
 _time_records
 /vendor/assets/bower_components
+.env
