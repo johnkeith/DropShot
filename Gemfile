@@ -13,7 +13,7 @@ gem 'haml-rails'
 
 gem 'devise'
 gem 'omniauth'
-gem 'omniauth-facebook'
+gem 'omniauth-dropbox-oauth2'
 
 group :development, :test do
   gem 'dotenv-rails'
