@@ -17,10 +17,13 @@ ActiveRecord::Schema.define(version: 20140828141238) do
   enable_extension "plpgsql"
 
   create_table "users", force: true do |t|
-    t.string   "dropbox_access_token"
-    t.integer  "dropbox_user_id"
+    t.string   "provider",     null: false
+    t.integer  "uid",          null: false
+    t.string   "access_token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
 
 end
