@@ -1,4 +1,8 @@
 class SessionsController < ApplicationController
+  def new
+    redirect_to '/auth/dropbox_oauth2'
+  end
+
   def create
     auth = env['omniauth.auth']
 
