@@ -19,7 +19,8 @@ ActiveRecord::Schema.define(version: 20140828141238) do
   create_table "users", force: true do |t|
     t.string   "provider",     null: false
     t.integer  "uid",          null: false
-    t.string   "access_token"
+    t.string   "access_token", null: false
+    t.string   "email",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

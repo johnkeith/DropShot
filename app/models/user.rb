@@ -7,9 +7,12 @@ class User < ActiveRecord::Base
   end
 
   def self.create_from_omniauth(auth)
+    binding.pry
     create(
-      dropbox_user_id: auth.user_id,
-      dropbox_access_token: auth.access_token
+      provider: auth.provider,
+      uid: auth.uid,
+      access_token: auth.credentials.token,
+      email: auth.extra.raw_info.email
     )
   end
 end
