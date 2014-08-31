@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get '/signout' => 'sessions#destroy', :as => :signout
   get '/auth/failure' => 'sessions#failure'
 
-  get '/upload', to: 'dropbox#upload'
+  post '/upload_from_url', to: 'dropbox#upload_from_url'
+  post '/upload_from_file', to: 'dropbox#upload_from_file'
 end
