@@ -1,1 +1,7 @@
-= link_to "Upload from URL", upload_from_url_path, method: :post
+.container
+  .row
+    = form_tag '/upload_from_url', method: :post do
+      .form-group
+        = label_tag :url, "URL to Screenshot"
+        = text_field_tag :url, nil, class: "form-control", placeholder: "Remember to use the full address (http://....)"
+      %button.btn.btn-default{ type: "submit" } Send to Dropbox

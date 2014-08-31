@@ -5,11 +5,13 @@ module Services
       
       width = opts.fetch(:width, 1024)
       height = opts.fetch(:height, 768)
-      timeout = opts.fetch(:timeout, 2)
+      timeout = opts.fetch(:timeout, 10)
       
       screen = Webshot::Screenshot.instance
-      screen.capture url, file, width: width, height: height, timeout: timeout
-
+      screen.start_session do
+        screen.capture url, file, width: width, height: height, timeout: timeout
+      end
+      
       file
     end
   end

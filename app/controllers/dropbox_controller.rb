@@ -8,7 +8,7 @@ class DropboxController < ApplicationController
     screenshot = screenshot.from_url params[:url]
 
     client = build_client
-    client.put_file('/screen.png', open(file))
+    client.put_file('/screen.png', open(screenshot))
     
     redirect_to root_path
   end
