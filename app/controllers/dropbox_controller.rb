@@ -4,14 +4,12 @@ class DropboxController < ApplicationController
   before_filter :authenticate_user!
 
   def upload_from_url
-    url = params[:url]
-    # send url from form to screenshot service
-      # screenshot service captures shot of site, saves it to a file in the /tmp dir
-    # screenshot service returns a file object
+    screenshot = Services::Screenshot.new
+    screenshot = screenshot.from_url params[:url]
 
-
-    # client = build_client
-    # client.put_file('/db_text.txt', open(Rails.root.join('tmp','db_test.txt').to_s))
+    client = build_client
+    client.put_file('/screen.png', open(file))
+    
     redirect_to root_path
   end
 
