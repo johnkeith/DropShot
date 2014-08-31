@@ -14,6 +14,8 @@ gem 'haml-rails'
 gem 'omniauth'
 gem 'omniauth-dropbox-oauth2'
 
+gem 'webshot'
+
 group :development, :test do
   gem 'dotenv-rails'
   gem 'rspec-rails'
