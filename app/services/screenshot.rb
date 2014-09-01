@@ -7,9 +7,10 @@ module Services
       # edit to reupload to heroku since phantomjs disappeared
       width = opts.fetch(:width, 1024)
       height = opts.fetch(:height, 768)
-      timeout = opts.fetch(:timeout, 10)
+      timeout = opts.fetch(:timeout, 2)
       
       screen = Webshot::Screenshot.instance
+      puts "I've made my instance"
       screen.start_session do
         screen.capture url, img_file, width: width, height: height, timeout: timeout
       end
