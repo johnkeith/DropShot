@@ -9,7 +9,7 @@ module Services
       
       screen = Webshot::Screenshot.instance
       screen.start_session do
-        screen.capture url, file, width: width, height: height, timeout: timeout
+        screen.capture url, "screen.png", width: width, height: height, timeout: timeout
       end
       
       file
