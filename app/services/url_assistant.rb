@@ -1,5 +1,5 @@
 module Services
-  class url_assistant
+  class UrlAssistant
     def valid_url?(url)
       # if url doesn't return a 200, 
         # attempt repairs
