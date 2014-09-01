@@ -1,7 +1,8 @@
 module Services
   class Screenshot
     def from_url(url, opts={})
-      file = Rails.root.join("tmp","screenshots","screen.png").to_s
+      img_file = Rails.root.join("tmp","screenshots","screen.png").to_s
+      img_file.slice!(0)
 
       width = opts.fetch(:width, 1024)
       height = opts.fetch(:height, 768)
@@ -9,10 +10,10 @@ module Services
       
       screen = Webshot::Screenshot.instance
       screen.start_session do
-        screen.capture url, file, width: width, height: height, timeout: timeout
+        screen.capture url, img_file, width: width, height: height, timeout: timeout
       end
       
-      file
+      img_file
     end
   end
 end
