@@ -6,12 +6,8 @@ class DropboxController < ApplicationController
   def upload_from_url
     screenshot = Services::Screenshot.new
     screenshot = screenshot.from_url params[:url]
-    puts screenshot
 
     client = build_client
-    puts client
-
-    puts open(screenshot)
     client.put_file('/screen.png', open(screenshot))
     
     redirect_to root_path
